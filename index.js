@@ -1,76 +1,17 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const { MongoClient, ServerApiVersion } = require('mongodb');
-require('dotenv').config();
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.2hdxw.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
-
-
-const app = express();
-app.use(bodyParser.json());
-app.use(cors());
-
-
+const express = require('express')
+require('dotenv').config()
+const app = express()
 const port = 5000;
 
-app.get("/", (req, res) => {
-  res.send("Hello from DataBase It's working")
-})
 
-
-
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://rana:<password>@cluster0.drrfzyp.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
-  const productsCollection = client.db("emaJohnStore").collection("products");
-  const ordersCollection = client.db("emaJohnStore").collection("orders");
-  
-  app.post('/addProduct', (req, res) => {
-    const products = req.body;
-    console.log(products);
-    productsCollection.insertOne(products)
-    .then(result => {
-      console.log(result);
-      res.send(result.acknowledged)
-    })
-  })
-
-
-  app.get('/products', (req, res) => {
-    productsCollection.find({})
-    .toArray( (err, documents) => {
-      res.send(documents);
-    })
-  })
-
-
-  app.get('/product/:key', (req, res) => {
-    productsCollection.find({key: req.params.key})
-    .toArray( (err, documents) => {
-      res.send(documents[0]);
-    })
-  })
-
-  app.post('/productsByKeys', (req, res) => {
-    const productKeys = req.body;
-    productsCollection.find({key: { $in: productKeys}})
-    .toArray( (err, documents) => {
-      res.send(documents);
-    })
-  })
-
-
-  app.post('/addOrder', (req, res) => {
-    const order = req.body;
-    console.log(order);
-    ordersCollection.insertOne(order)
-    .then(result => {
-      console.log(result);
-      res.send(result.acknowledged === true)
-    })
-  })
-
-
-
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
 });
 
-app.listen(process.env.PORT || port)
+
+app.listen(port)

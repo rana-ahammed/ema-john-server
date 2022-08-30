@@ -1,24 +1,32 @@
 {
-  "name": "ema-john-server",
+  "name": "c",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "start:dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mongodb": "^4.5.0"
+    "mongodb": "^4.9.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
-  }
+    "nodemon": "^2.0.19"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranaahammed012/ema-john-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ranaahammed012/ema-john-server/issues"
+  },
+  "homepage": "https://github.com/ranaahammed012/ema-john-server#readme",
+  "description": ""
 }
