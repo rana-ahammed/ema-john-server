@@ -23,10 +23,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ranaahammed012/ema-john-server.git"
+    "url": "git+https://github.com/rana-ahammed/ema-john-server.git"
   },
   "bugs": {
-    "url": "https://github.com/ranaahammed012/ema-john-server/issues"
+    "url": "https://github.com/rana-ahammed/ema-john-server/issues"
   },
   "homepage": "https://github.com/ranaahammed012/ema-john-server#readme",
   "description": ""
